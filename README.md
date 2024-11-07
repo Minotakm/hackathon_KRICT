@@ -25,3 +25,6 @@ Atomic packing fraction or add new ones. If there is redundancy try to avoid it.
 ```
 that was used on ChatGPT. These values were taken by asking perplexity.ai to search the bibliography for this kind of work and come up with the easiest descriptors that have been used so far for this problem. 
 
+TODO: 
+    Same descriptors different energies -> Drop them. 
+    We need to have the same elements trained on the training set in the test set. 
