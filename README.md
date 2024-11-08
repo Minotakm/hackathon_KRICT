@@ -1,30 +1,73 @@
-### Notes on the Project. 
+# Hackathon KRICT: Universal Formation Energy Prediction
 
-In the sandbox we see the first try where we built a descriptor that has solely elemental information based on the chemical formula. Then we train a XGBr model where in the pipeline we used PCA to select the first 5 strongest feautures. This did not work well enough, what happend is that it overfitted the training set and could not predict the enthalpy of formation of the test set (possible solution to make the model less complex. Make the descriptor better.)
+![Hackathon Banner](path/to/banner/image) <!-- Replace with actual path if applicable -->
 
-In sandbox_2 we created a new descriptor based on that prompt. 
-```
-You are a ML engineer. I want you to come up with a good descriptor for the prediction of the formation enthalpy given that you have the compound formula which can be binary or ternary and mendeleev library. Pick from these choices Based on the search results, some of the simplest descriptors used in machine learning models to predict formation energies of crystals include:
-Elemental properties: Basic properties of the constituent elements are often used as descriptors, such as:
-Atomic number
-Electronegativity
-Atomic radius
-Valence electron count
-Compositional features:
-Stoichiometric ratios of elements
-Average atomic mass
-Structural features:
-Coordination numbers
-Nearest neighbor distances
-Unit cell parameters (lattice constants, angles)
-Simple statistical measures:
-Mean, standard deviation, minimum, and maximum values of elemental properties within the compound
-Heuristic quantities:
-Differences in electronegativity between neighboring atoms
-Atomic packing fraction or add new ones. If there is redundancy try to avoid it. We want a concise and descriptive one. 
-```
-that was used on ChatGPT. These values were taken by asking perplexity.ai to search the bibliography for this kind of work and come up with the easiest descriptors that have been used so far for this problem. 
+## Project Overview
 
-TODO: 
-    Same descriptors different energies -> Drop them. 
-    We need to have the same elements trained on the training set in the test set. 
+This project aims to develop a machine learning model for predicting formation energy, a crucial property in materials science, by leveraging large datasets from the MatDX API. It was created as part of the **KRICT Hackathon** held from **November 6-8, 2024**.
+
+### Authors
+- **Kisung Kang**
+- **Michail Minotakis**
+
+## Objectives
+
+1. **Data Collection**: Extract ~20k data points (binary and ternary compositions) from the MatDX API.
+2. **Data Curation**: Address imbalances and outliers, particularly in the low-negative and high-positive formation energy regions.
+3. **Model Training**: Develop and optimize various ML models to predict formation energy accurately.
+
+## Dataset
+
+The dataset comprises approximately 20,000 data points, mainly binary and ternary data with a focus on formation energy. A large proportion of data is concentrated around the 0 eV region, with notable outliers in extreme positive and negative ranges.
+
+### Key Features in Dataset
+- **Space Group Distribution**: A range of crystallographic space groups.
+- **Element Distribution**: Diverse elements to enrich the dataset.
+- **Descriptors**:
+  - **Elemental Properties**: Mean electronegativity, atomic mass, and radius.
+  - **Structural Properties**: Atomic volumes and space groups.
+  - **Statistical Properties**: Standard deviation of electronegativity, atomic number differences.
+
+## Methodology
+
+The project explores multiple machine learning techniques to achieve optimal performance in predicting formation energy. 
+
+### Model Training
+Models tested include:
+- **Linear Regression**
+- **Ridge & Lasso Regression**
+- **Decision Tree & Random Forest**
+- **Gradient Boosting**
+- **Support Vector Regressor**
+- **k-Nearest Neighbors**
+
+### Model Optimization
+Further optimizations are conducted using pretrained multi-layer perceptron models (e.g., MACE MP0, SevenNet, Orb v2) to improve model accuracy.
+
+### Results
+- **Mean Absolute Error (MAE)**: Achieved a best score of **0.549 eV**.
+- **R² Score**: Reached **0.910**, indicating a strong predictive model.
+
+## Installation
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/Minotakm/hackathon_KRICT.git
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd hackathon_KRICT
+    ```
+3. Install the required dependencies (e.g., `scikit-learn`, `pandas`, `numpy`):
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## Usage
+
+1. **Download Data**:
+   Use the MatDX API to retrieve and preprocess the data as described in `data_extraction.py`.
+2. **Train Models**:
+   Run the model training script:
+   ```bash
+   python train_model.py
