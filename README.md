@@ -1,7 +1,5 @@
 # Hackathon KRICT: Universal Formation Energy Prediction
 
-![Hackathon Banner](path/to/banner/image) <!-- Replace with actual path if applicable -->
-
 ## Project Overview
 
 This project aims to develop a machine learning model for predicting formation energy, a crucial property in materials science, by leveraging large datasets from the MatDX API. It was created as part of the **KRICT Hackathon** held from **November 6-8, 2024**.
