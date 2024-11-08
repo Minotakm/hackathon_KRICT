@@ -56,16 +56,8 @@ Further optimizations are conducted using pretrained multi-layer perceptron mode
     ```bash
     cd hackathon_KRICT
     ```
-3. Install the required dependencies (e.g., `scikit-learn`, `pandas`, `numpy`):
-    ```bash
-    pip install -r requirements.txt
-    ```
 
 ## Usage
 
 1. **Download Data**:
    Use the MatDX API to retrieve and preprocess the data as described in `data_extraction.py`.
-2. **Train Models**:
-   Run the model training script:
-   ```bash
-   python train_model.py
