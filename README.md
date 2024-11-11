@@ -61,3 +61,6 @@ Further optimizations are conducted using pretrained multi-layer perceptron mode
 
 1. **Download Data**:
    Use the MatDX API to retrieve and preprocess the data as described in `data_extraction.py`.
+
+2. Follow the instruction of jupyter notebooks from 1 to 5.
+   Notebook 0 is optional.
